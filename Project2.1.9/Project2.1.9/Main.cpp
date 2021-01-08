@@ -573,6 +573,59 @@ namespace stuff
 		return num;
 	}
 
+	template <typename T>
+	void sevenCharachterIdMove(forward_list<Exam<int>>::iterator list, int size)
+	{
+		auto cur = list;
+		auto place_to = list;
+		for (int i = 0; i < size + 1; i++)
+		{
+			int check = cur->id;
+			int ifseven = 0;
+			while (check > 0)
+			{
+				int minus = check % 10;
+				check = (check - minus) / 10;
+				if (check != 10)
+					ifseven++;
+			}
+			if (ifseven == 7 && cur != place_to)
+			{
+				T count;
+				int countd;
+				string counts;
+
+				count = cur->val;
+				cur->val = place_to->val;
+				place_to->val = count;
+
+				countd = cur->id;
+				cur->id = place_to->id;
+				place_to->id = countd;
+
+				counts = cur->name;
+				cur->name = place_to->name;
+				place_to->name = counts;
+				if (i<size)
+				place_to++;
+			}
+			else if (ifseven == 7 && cur==place_to)
+			{
+				if (i < size)
+					place_to++;
+			}
+
+			cur++;
+			ifseven = 0;
+		}
+	}
+
+	forward_list<Exam<int>>::iterator operator++(forward_list<Exam<int>>::iterator list)
+	{
+		list++;
+		return list;
+	}
+	
 }
 
 using  stuff::Exam;
@@ -588,19 +641,21 @@ int main()
 	cin.get();
 	system("cls");
 
-	cout << "input first element of int list" << endl;
-	forward_list<Exam<int>> listi(1);
-	int i = 0;
+		cout << "input first element of int list" << endl;
+		forward_list<Exam<int>> listi(1);
+		int i = 0;
 
-	//cout << "input first element of double list" << endl;
-	//forward_list<Exam<double>> listd(1);
-	//int d = 0;
+		//cout << "input first element of double list" << endl;
+		//forward_list<Exam<double>> listd(1);
+		//int d = 0;
 
-	//cout << "input first element of char list" << endl;
-	//forward_list<Exam<char>> listc(1);
-	//int c = 0;
+		//cout << "input first element of char list" << endl;
+		//forward_list<Exam<char>> listc(1);
+		//int c = 0;
+	
 
 
+	
 	cout << "do you want to add any elements to int list?" << endl;
 	Add<int> lint(listi.begin(), &i);
 	while (answerCheck())
@@ -609,6 +664,7 @@ int main()
 		lint.add(&listi, &i);
 		cout << "do you want to add any more elements to this list?" << endl;
 	}
+
 
 	//cout << "do you want to add any elements to double list?" << endl;
 	//while (answerCheck())
@@ -643,9 +699,22 @@ int main()
 		cout << endl;
 		out++;
 	}
+	
+
 
 	cout << "numo of objects with id>999999 is: " << stuff::sevenCharachterId<int>(listi.begin(), i) << endl << endl;
 
+	stuff::sevenCharachterIdMove<int>(listi.begin(), i);
+
+	out = listi.begin();
+	
+	for (int k = 0; k < i + 1; k++)
+	{
+		out->get();
+		cout << endl;
+		out++;
+	}
+	
 
 	vector<char> str;
 
@@ -655,6 +724,7 @@ int main()
 	else cout << "impossible to open file"<<endl;
 	int length = 0;
 	int l = 1;
+
 	if (fin.is_open())
 	{
 		
@@ -738,6 +808,8 @@ int main()
 			continue;
 		}
 	}
+	
+
 
 	if (word != 0) wordcount++;
 
