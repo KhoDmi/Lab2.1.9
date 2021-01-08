@@ -1,0 +1,11 @@
+﻿  Main.cpp
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(1,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(2,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(5,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(7,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(98): warning C4715: doubleInpCheck: значение возвращается не при всех путях выполнения
+C:\Users\Lenovo\source\repos\Project2.1.9\Project2.1.9\Main.cpp(54): warning C4715: intInpCheck: значение возвращается не при всех путях выполнения
+  Project2.1.9.vcxproj -> C:\Users\Lenovo\source\repos\Project2.1.9\Debug\Project2.1.9.exe
