@@ -5,7 +5,8 @@
 #include"cmath";
 #include <cassert>;
 #include <typeinfo>;
-#include"forward_list"
+#include<forward_list>
+#include <vector>
 
 using namespace std;
 
@@ -322,8 +323,181 @@ namespace stuff
 
 	}
 
-		template <typename T>
-		class Add
+	template <typename T>
+	void Shelld(forward_list<Exam<double>>::iterator list, int size)
+	{
+		try
+		{
+			T count = 0;
+			string counts;
+			int countd;
+			int i = 0;
+			int d = size;
+			int n = d;
+			d = d / 2;
+			while (d > 0)
+			{
+				auto cur = list;
+				auto last = list;
+				for (i = 0; i < d; i++)
+				{
+					last++;
+				}
+				for (i = 0; i < n - d; i++)
+				{
+					int j = i;
+					while (j >= 0 && cur->val > last->val)
+					{
+						count = cur->val;
+						cur->val = last->val;
+						last->val = count;
+
+						countd = cur->id;
+						cur->id = last->id;
+						last->id = countd;
+
+						counts = cur->name;
+						cur->name = last->name;
+						last->name = counts;
+
+						j--;
+					}
+					cur++;
+					last++;
+				}
+				d = d / 2;
+
+				if (d == 0)
+				{
+					d = 1;
+					auto cur = list;
+					auto last = list;
+					for (i = 0; i < d; i++)
+					{
+						last++;
+					}
+					for (i = 0; i < n - d; i++)
+					{
+						int j = i;
+						while (j >= 0 && cur->val > last->val)
+						{
+							count = cur->val;
+							cur->val = last->val;
+							last->val = count;
+
+							countd = cur->id;
+							cur->id = last->id;
+							last->id = countd;
+
+							counts = cur->name;
+							cur->name = last->name;
+							last->name = counts;
+
+							j--;
+						}
+						cur++;
+						last++;
+					}
+					d = d / 2;
+				}
+			}
+		}
+		catch (MyException exception)
+		{
+			cerr << exception.getErr();
+		}
+
+	}
+
+	template <typename T>
+	void Shellc(forward_list<Exam<char>>::iterator list, int size)
+	{
+		try
+		{
+			T count = 0;
+			string counts;
+			int countd;
+			int i = 0;
+			int d = size;
+			int n = d;
+			d = d / 2;
+			while (d > 0)
+			{
+				auto cur = list;
+				auto last = list;
+				for (i = 0; i < d; i++)
+				{
+					last++;
+				}
+				for (i = 0; i < n - d; i++)
+				{
+					int j = i;
+					while (j >= 0 && cur->val > last->val)
+					{
+						count = cur->val;
+						cur->val = last->val;
+						last->val = count;
+
+						countd = cur->id;
+						cur->id = last->id;
+						last->id = countd;
+
+						counts = cur->name;
+						cur->name = last->name;
+						last->name = counts;
+
+						j--;
+					}
+					cur++;
+					last++;
+				}
+				d = d / 2;
+
+				if (d == 0)
+				{
+					d = 1;
+					auto cur = list;
+					auto last = list;
+					for (i = 0; i < d; i++)
+					{
+						last++;
+					}
+					for (i = 0; i < n - d; i++)
+					{
+						int j = i;
+						while (j >= 0 && cur->val > last->val)
+						{
+							count = cur->val;
+							cur->val = last->val;
+							last->val = count;
+
+							countd = cur->id;
+							cur->id = last->id;
+							last->id = countd;
+
+							counts = cur->name;
+							cur->name = last->name;
+							last->name = counts;
+
+							j--;
+						}
+						cur++;
+						last++;
+					}
+					d = d / 2;
+				}
+			}
+		}
+		catch (MyException exception)
+		{
+			cerr << exception.getErr();
+		}
+
+	}
+
+
+	template <typename T>
+	class Add
 		{
 		public:
 			forward_list<Exam<int>>::iterator list;
@@ -338,9 +512,66 @@ namespace stuff
 				list->push_front(add);
 			}
 
-		};
+	};
 
+	/*template <typename T>
+	class Addd
+	{
+	public:
+		forward_list<Exam<double>>::iterator list;
+		int* i;
+
+
+		Add(forward_list<Exam<double>>::iterator list, int* i) : list(list), i(i) {}
+
+		void add(forward_list<Exam<T>>* list, int* i)
+		{
+			Exam<T> add;
+			list->push_front(add);
+		}
+
+	};
 	
+	template <typename T>
+	class Addc
+	{
+	public:
+		forward_list<Exam<char>>::iterator list;
+		int* i;
+
+
+		Add(forward_list<Exam<char>>::iterator list, int* i) : list(list), i(i) {}
+
+		void add(forward_list<Exam<T>>* list, int* i)
+		{
+			Exam<T> add;
+			list->push_front(add);
+		}
+
+	};*/
+
+	template <typename T>
+	int sevenCharachterId(forward_list<Exam<int>>::iterator list, int size)
+	{
+		int num = 0;
+		auto cur = list;
+		for (int i = 0; i < size+1; i++)
+		{
+			int check = cur->id;
+			int ifseven = 0;
+			while (check > 0)
+			{
+				int minus = check % 10;
+				check = (check - minus) / 10;
+				if (check != 10)
+					ifseven++;
+			}
+			if (ifseven == 7) num++;
+			cur++;    
+			ifseven = 0;
+		}
+		return num;
+	}
 
 }
 
@@ -369,9 +600,9 @@ int main()
 	//forward_list<Exam<char>> listc(1);
 	//int c = 0;
 
-	Add<int> lint(listi.begin(), &i);
 
 	cout << "do you want to add any elements to int list?" << endl;
+	Add<int> lint(listi.begin(), &i);
 	while (answerCheck())
 	{
 		listi.resize(++i);
@@ -382,8 +613,9 @@ int main()
 	//cout << "do you want to add any elements to double list?" << endl;
 	//while (answerCheck())
 	//{
-	//	listi.resize(++i);
-	//	add<double>(&listd, &d);
+	//	listd.resize(++d);
+	//	Exam<double> addd;
+	//	listd.push_front(addd);
 	//	cout << "do you want to add any more elements to this list?" << endl;
 	//}
 
@@ -391,21 +623,127 @@ int main()
 	//cout << "do you want to add any elements to char list?" << endl;
 	//while (answerCheck())
 	//{
-	//	listi.resize(++i);
-	//	add<char>(&listc, &c);
+	//	listc.resize(++c);
+	//  Exam<char> add;
+	//	listc.push_front(add);
 	//	cout << "do you want to add any more elements to this list?" << endl;
 	//}
 
 
 	stuff::Shell<int>(listi.begin(), i+1);
 
+	//stuff::Shelld<double>(listd.begin(), i + 1);
+	//stuff::Shellc<char>(listc.begin(), i + 1);
+
+
 	auto out= listi.begin();
-	for (int k = 0; k < i+1; k++)
+	for (int k = 0; k < i + 1; k++)
 	{
 		out->get();
 		cout << endl;
 		out++;
 	}
+
+	cout << "numo of objects with id>999999 is: " << stuff::sevenCharachterId<int>(listi.begin(), i) << endl << endl;
+
+
+	vector<char> str;
+
+	char buff; 
+	ifstream fin("C:/Users/Lenovo/source/repos/Project2.1.9/text.txt"); 
+	if (fin.is_open()) cout << "file text.txt is opened" << endl;
+	else cout << "impossible to open file"<<endl;
+	int length = 0;
+	int l = 1;
+	if (fin.is_open())
+	{
+		
+		while (true)
+		{
+			cout << "line " << l << " status: ";
+			int check = l;
+			while(true)
+			{ 				
+				buff = fin.get();
+				if (buff == EOF)
+					break;
+				if (buff == '\n')
+				{
+					str.push_back(buff);
+					length++;
+					l++;
+				}
+				if (check != l)
+					break;
+				str.push_back(buff);
+				length++;
+			}
+			if (buff == EOF)
+				break;
+			if (check != l)
+			{
+				if (fin.good())
+					cout << "OK" << endl;
+				else cout << "Error" << endl;
+				continue;
+			}
+		}
+
+		cout << "EOF " << endl;
+	}
+
+
+
+	int start = 0;
+	int word = 0;
+	int wordcount = 0;
+	for (int i = 0; i < length; i++)
+	{
+		
+		if ((str.back() != ' ' && str.back() != '\n') && start != 0)
+		{
+			word++;
+			str.pop_back();
+			if (str.empty())
+				break;
+			continue;
+		}
+		if ((str.back() == ' ' || str.back() == '\n') && start != 0)
+		{
+			if (word != 0)
+			{
+				word=0;
+				wordcount++;
+			}
+			str.pop_back();
+			if (str.empty())
+				break;
+			continue;
+		}
+		if ((str.back() == ' ' || str.back() == '\n') && start == 0)
+		{
+			start++;
+			str.pop_back();
+			if (str.empty())
+				break;
+			continue;
+		}
+		if ((str.back() != ' ' && str.back() != '\n') && start == 0)
+		{
+			word++;
+			start++;
+			str.pop_back();
+			if (str.empty())
+				break;
+			continue;
+		}
+	}
+
+	if (word != 0) wordcount++;
+
+	fin.close();
+	if (!(fin.is_open())) cout << "file text.txt is closed" << endl;
+	cout << "number of words is: " << wordcount << endl;
 
 	return 0;
 }
